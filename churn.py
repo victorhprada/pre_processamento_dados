@@ -121,3 +121,20 @@ print(df['Churn'].isnull().sum())
 print(df.isnull().sum())
 
 df['Churn'] = df['Churn'].astype(int)
+
+# Alterando nome da coluna para seguir o padrão
+df.rename(columns={'Balance': 'Balanco'}, inplace=True)
+print(df.head())
+
+print(df['Pais'].unique()) # Verificamos os nomes dentro da coluna pais
+
+df['Pais'] = df['Pais'].str.upper() # Transformando os nomes no formato de texto caixa alta
+print(df['Pais'].unique())
+
+# Corrigindo o Germani para Germany
+df['Pais'] = df['Pais'].replace('GERMANI', 'GERMANY')
+print(df['Pais'].unique())
+
+# Removendo colunas que não são importantes para não correr o risco de haver algum vies
+df.drop(columns=['Sobrenome'], inplace=True)
+df.drop(columns=['CustomerId'], inplace=True)
