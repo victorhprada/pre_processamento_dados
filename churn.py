@@ -108,7 +108,7 @@ plt.xticks(rotation=45)
 plt.figure(figsize=(10, 6))
 sns.countplot(data=df,
               x='Pais')
-plt.title('Distribuição da coluna "Pais"para Churn Nulo')
+plt.title('Distribuição da coluna "Pais" para Churn Nulo')
 plt.xlabel('Pais')
 plt.ylabel('Contagem')
 plt.xticks(rotation=45)
