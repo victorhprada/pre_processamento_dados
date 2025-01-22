@@ -74,3 +74,5 @@ df.rename(columns={'Genero': 'Gender', 'Idoso': 'elderly', 'Casado': 'Married', 
                    'Tipo_Contrato': 'Contract_Type', 'Pagamento_Mensal': 'Payment_Month', 'Total_Pago': 'Full_Payment'}, inplace=True)
 df.columns = df.columns.str.upper()
 print(df.head())
+
+df.to_csv('arquivo_analise_telecon.csv', index=False)

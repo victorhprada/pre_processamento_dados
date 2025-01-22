@@ -113,7 +113,7 @@ fig = px.box(df_not_zero,
              y='Balanco',
              title='Box Plot do Balanço com valores diferentes de zero (0)',
              labels={'Balanco': 'Valores'})
-# fig.show()
+# # fig.show()
 
 # Visualizando onde a ocorrência é maior de 180000
 print(df[df['Balanco'] > 180000])
@@ -149,7 +149,7 @@ fig = px.box(df,
              y='Qtd_Produtos',
              title='Box Plot da quantidade de produtos',
              labels={'Qtd_Produtos': 'Valores'})
-# fig.show()
+# # fig.show()
 
 # Verificando a distribuição das categorias
 print(df['Qtd_Produtos'].value_counts(normalize=True) * 100)
