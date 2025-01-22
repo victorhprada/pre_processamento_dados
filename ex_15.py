@@ -26,6 +26,7 @@ plt.title('Gráfico de barras para churn')
 plt.xlabel('Churn')
 plt.ylabel('Frequência')
 plt.xticks(rotation=1)
+plt.savefig('imagens/calculate_churn_percentage.png')
 # plt.show()
 
 # Analysis Dependents
@@ -33,11 +34,15 @@ df['DEPENDENTS'].hist(bins=20)
 plt.title('Histograma dos dependentes')
 plt.xlabel('Dependentes')
 plt.ylabel('Frequência')
+plt.savefig('imagens/analysis_dependents.png')
+
 # plt.show()
 
 # Analysis Contract type
 df['CONTRACT_TYPE'].value_counts().plot(kind='pie', autopct='%1.1f%%')
 plt.title('Gráfico de Pizza para Visualizar os Tipos de Contratos')
+plt.savefig('imagens/analysis_contract_type.jpg')
+
 # plt.show()
 
 # Analysis Streaming TV
@@ -55,6 +60,8 @@ plt.title('Gráfico de Barras para Streaming TV')
 plt.xlabel('Streaming')
 plt.ylabel('Frequência')
 plt.xticks(rotation=1)
+plt.savefig('imagens/analysis_streaming_tv.png')
+
 # plt.show()
 
 # Verify Booleans Elderly
@@ -83,21 +90,24 @@ fig = px.box(df,
              y='CLIENT_HOUR',
              title='BoxPlot do Tempo de Atendimento',
              labels={'CLIENT_HOUR': 'Tempo'})
-fig.show()
+fig.write_image('imagens/search_outliers_client_hour.png')
+# fig.show()
 
 # Search Outlier Payment Month
 fig = px.box(df,
              y='PAYMENT_MONTH',
              title='BoxPlot de Pagamento Mensal',
              labels={'PAYMENT_MONTH': 'Mensalidade'})
-fig.show()
+fig.write_image('imagens/search_outliers_payment_mounth.png')
+# fig.show()
 
 # Search Outlier Full Payment
 fig = px.box(df,
              y='FULL_PAYMENT',
              title='BoxPlot de Pagamento Total',
              labels={'FULL_PAYMENT': 'Pagamento Total'})
-fig.show()
+fig.write_image('imagens/search_outliers_full_payment.png')
+# fig.show()
 
 # Biv Analysis
 
@@ -116,7 +126,8 @@ fig = px.bar(df_group_married,
 fig.update_layout(title='Releção entre Churn e Casado(a)',
                   yaxis_title='Porcentagem',
                   legend_title='Casado(a)')
-fig.show()
+fig.write_image('imagens/percent_married_churn.png')
+# fig.show()
 
 # Percentage Contract Type x Churn
 df_group_contract_type = df.groupby(['CHURN', 'CONTRACT_TYPE']).size().reset_index(name='count')
@@ -132,7 +143,8 @@ fig = px.bar(df_group_contract_type,
 fig.update_layout(title='Relação entre Churn e Tipo de Contrato',
                   yaxis_title='Porcentagem',
                   legend_title='Tipo de Contrato')
-fig.show()
+fig.write_image('imagens/percent_contract_type_churn.png')
+# fig.show()
 
 # Percentage Dependents x Churn
 df_group_dependents = df.groupby(['CHURN', 'DEPENDENTS']).size().reset_index(name='count')
@@ -148,7 +160,8 @@ fig = px.bar(df_group_dependents,
 fig.update_layout(title='Relação entre Churn e Dependentes',
                   yaxis_title='Porcentagem',
                   legend_title='Dependentes')
-fig.show()
+fig.write_image('imagens/percent_dependents_churn.png')
+# fig.show()
 
 # Percentage Gender x Churn
 df_group_gender = df.groupby(['CHURN', 'GENDER']).size().reset_index(name='count')
@@ -165,7 +178,8 @@ fig = px.bar(df_group_gender,
 fig.update_layout(title='Relação entre Gênero e Churn',
                   yaxis_title='Porcentagem',
                   legend_title='Gênero')
-fig.show()
+fig.write_image('imagens/percent_gender_churn.png')
+# fig.show()
 
 # Percentage Elderly x Churn
 fig = px.histogram(df,
@@ -178,4 +192,5 @@ fig.update_layout(title='Relação entre Idosos e Churn',
                   xaxis_title='CHURN',
                   yaxis_title='Contagem',
                   legend_title='Idoso')
-fig.show()
+fig.write_image('imagens/percent_elderly_churn.png')
+# fig.show()
